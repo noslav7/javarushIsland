@@ -1,0 +1,360 @@
+IslandSettings:
+  height: 100
+  width: 20
+  turnsCount: 1000
+  statisticsUpdateFrequency: 500
+
+  creatureSpawnChance: 0.10
+
+
+Creatures:
+  Bear:
+    weight: 500
+    movementSpeed: 2
+    weightFoodCanEat: 80
+    emoji: "🐻"
+    maxNumberPerOneLocation: 5
+    chanceToEat:
+      Boa: 80
+      Eagle: 0
+      Fox: 0
+      Wolf: 0
+      Boar: 50
+      Buffalo: 20
+      Caterpillar: 0
+      Deer: 80
+      Duck: 20
+      Goat: 70
+      Horse: 40
+      Mouse: 90
+      Rabbit: 80
+      Sheep: 70
+      Plant: 0
+  Boa:
+    weight: 15
+    movementSpeed: 1
+    weightFoodCanEat: 3
+    emoji: "🐍"
+    maxNumberPerOneLocation: 30
+    chanceToEat:
+      Bear: 0
+      Eagle: 0
+      Fox: 15
+      Wolf: 0
+      Boar: 0
+      Buffalo: 0
+      Caterpillar: 0
+      Deer: 80
+      Duck: 10
+      Goat: 70
+      Horse: 40
+      Mouse: 90
+      Rabbit: 80
+      Sheep: 70
+      Plant: 0
+  Eagle:
+    weight: 6
+    movementSpeed: 3
+    weightFoodCanEat: 1
+    emoji: "🦅"
+    maxNumberPerOneLocation: 20
+    chanceToEat:
+      Boa: 0
+      Bear: 0
+      Fox: 10
+      Wolf: 0
+      Boar: 0
+      Buffalo: 0
+      Caterpillar: 0
+      Deer: 0
+      Duck: 80
+      Goat: 0
+      Horse: 0
+      Mouse: 90
+      Rabbit: 90
+      Sheep: 0
+      Plant: 0
+  Fox:
+    weight: 8
+    movementSpeed: 2
+    weightFoodCanEat: 2
+    emoji: "🦊"
+    maxNumberPerOneLocation: 30
+    chanceToEat:
+      Boa: 0
+      Eagle: 0
+      Bear: 0
+      Wolf: 0
+      Boar: 0
+      Buffalo: 0
+      Caterpillar: 40
+      Deer: 0
+      Duck: 60
+      Goat: 0
+      Horse: 0
+      Mouse: 90
+      Rabbit: 70
+      Sheep: 0
+      Plant: 0
+  Wolf:
+    weight: 50
+    movementSpeed: 3
+    weightFoodCanEat: 8
+    emoji: "🐺"
+    maxNumberPerOneLocation: 30
+    chanceToEat:
+      Boa: 0
+      Eagle: 0
+      Fox: 0
+      Bear: 0
+      Boar: 15
+      Buffalo: 10
+      Caterpillar: 0
+      Deer: 15
+      Duck: 40
+      Goat: 60
+      Horse: 10
+      Mouse: 80
+      Rabbit: 60
+      Sheep: 70
+      Plant: 0
+  Boar:
+    weight: 400
+    movementSpeed: 2
+    weightFoodCanEat: 50
+    emoji: "🐗"
+    maxNumberPerOneLocation: 50
+    chanceToEat:
+      Boa: 0
+      Eagle: 0
+      Fox: 0
+      Wolf: 0
+      Bear: 0
+      Buffalo: 0
+      Caterpillar: 90
+      Deer: 0
+      Duck: 0
+      Goat: 0
+      Horse: 50
+      Mouse: 0
+      Rabbit: 0
+      Sheep: 0
+      Plant: 100
+  Buffalo:
+    weight: 700
+    movementSpeed: 3
+    weightFoodCanEat: 100
+    emoji: "🐃"
+    maxNumberPerOneLocation: 10
+    chanceToEat:
+      Bear: 0
+      Eagle: 0
+      Fox: 0
+      Wolf: 0
+      Boar: 0
+      Boa: 0
+      Caterpillar: 0
+      Deer: 0
+      Duck: 0
+      Goat: 0
+      Horse: 0
+      Mouse: 0
+      Rabbit: 0
+      Sheep: 0
+      Plant: 100
+  Caterpillar:
+    weight: 0.01
+    movementSpeed: 0
+    weightFoodCanEat: 0
+    emoji: "🐛"
+    maxNumberPerOneLocation: 1000
+    chanceToEat:
+      Boa: 0
+      Bear: 0
+      Fox: 0
+      Wolf: 0
+      Boar: 0
+      Buffalo: 0
+      Eagle: 0
+      Deer: 0
+      Duck: 0
+      Goat: 0
+      Horse: 0
+      Mouse: 0
+      Rabbit: 0
+      Sheep: 0
+      Plant: 100
+  Deer:
+    weight: 300
+    movementSpeed: 4
+    weightFoodCanEat: 50
+    emoji: "🦌"
+    maxNumberPerOneLocation: 20
+    chanceToEat:
+      Boa: 0
+      Eagle: 0
+      Bear: 0
+      Wolf: 0
+      Boar: 0
+      Buffalo: 0
+      Caterpillar: 0
+      Fox: 0
+      Duck: 0
+      Goat: 0
+      Horse: 0
+      Mouse: 0
+      Rabbit: 0
+      Sheep: 0
+      Plant: 100
+  Duck:
+    weight: 1
+    movementSpeed: 4
+    weightFoodCanEat: 0.15
+    emoji: "🦆"
+    maxNumberPerOneLocation: 200
+    chanceToEat:
+      Boa: 0
+      Eagle: 0
+      Fox: 0
+      Bear: 0
+      Boar: 0
+      Buffalo: 0
+      Caterpillar: 90
+      Deer: 0
+      Wolf: 0
+      Goat: 0
+      Horse: 0
+      Mouse: 0
+      Rabbit: 0
+      Sheep: 0
+      Plant: 100
+  Goat:
+    weight: 60
+    movementSpeed: 3
+    weightFoodCanEat: 10
+    emoji: "🐐"
+    maxNumberPerOneLocation: 140
+    chanceToEat:
+      Boa: 0
+      Eagle: 0
+      Fox: 0
+      Wolf: 0
+      Boar: 0
+      Buffalo: 0
+      Caterpillar: 0
+      Deer: 0
+      Duck: 0
+      Bear: 0
+      Horse: 0
+      Mouse: 0
+      Rabbit: 0
+      Sheep: 0
+      Plant: 100
+  Horse:
+    weight: 400
+    movementSpeed: 4
+    weightFoodCanEat: 60
+    emoji: "🐎"
+    maxNumberPerOneLocation: 20
+    chanceToEat:
+      Bear: 0
+      Eagle: 0
+      Fox: 0
+      Wolf: 0
+      Boar: 0
+      Buffalo: 0
+      Caterpillar: 0
+      Deer: 0
+      Duck: 0
+      Goat: 0
+      Boa: 0
+      Mouse: 0
+      Rabbit: 0
+      Sheep: 0
+      Plant: 100
+  Mouse:
+    weight: 0.05
+    movementSpeed: 1
+    weightFoodCanEat: 0.01
+    emoji: "🐁"
+    maxNumberPerOneLocation: 500
+    chanceToEat:
+      Boa: 0
+      Bear: 0
+      Fox: 0
+      Wolf: 0
+      Boar: 0
+      Buffalo: 0
+      Caterpillar: 90
+      Deer: 0
+      Duck: 0
+      Goat: 0
+      Horse: 0
+      Eagle: 0
+      Rabbit: 0
+      Sheep: 0
+      Plant: 100
+  Rabbit:
+    weight: 2
+    movementSpeed: 2
+    weightFoodCanEat: 0.45
+    emoji: "🐇"
+    maxNumberPerOneLocation: 150
+    chanceToEat:
+      Boa: 0
+      Eagle: 0
+      Bear: 0
+      Wolf: 0
+      Boar: 0
+      Buffalo: 0
+      Caterpillar: 0
+      Deer: 0
+      Duck: 0
+      Goat: 0
+      Horse: 0
+      Mouse: 0
+      Fox: 0
+      Sheep: 0
+      Plant: 100
+  Sheep:
+    weight: 70
+    movementSpeed: 3
+    weightFoodCanEat: 15
+    emoji: "🐑"
+    maxNumberPerOneLocation: 140
+    chanceToEat:
+      Boa: 0
+      Eagle: 0
+      Fox: 0
+      Bear: 0
+      Boar: 0
+      Buffalo: 0
+      Caterpillar: 0
+      Deer: 0
+      Duck: 0
+      Goat: 0
+      Horse: 0
+      Mouse: 0
+      Rabbit: 0
+      Wolf: 0
+      Plant: 100
+  Plant:
+    weight: 1
+    emoji: "🌿"
+    maxNumberPerOneLocation: 200
+    chanceToEat:
+      Boa: 0
+      Eagle: 0
+      Fox: 0
+      Wolf: 0
+      Boar: 0
+      Buffalo: 0
+      Caterpillar: 0
+      Deer: 0
+      Duck: 0
+      Goat: 0
+      Horse: 0
+      Mouse: 0
+      Rabbit: 0
+      Sheep: 0
+      Bear: 0

@@ -5,7 +5,7 @@ import javarush.island.utils.MathUtils;
 import java.util.Arrays;
 import java.util.List;
 
-//Класс описывает все возможные направления движения, чтобы было проще ориентироваться
+//The class describes all possible movement directions
 public enum Direction {
     UP,
     DOWN,

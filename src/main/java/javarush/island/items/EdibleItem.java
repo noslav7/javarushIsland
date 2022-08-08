@@ -3,7 +3,7 @@ package javarush.island.items;
 import lombok.Getter;
 
 /**
- * Abstraction provides an opportunity to eat an object
+ * The abstraction provides an opportunity to eat an object
  */
 public abstract class EdibleItem extends BasicItem {
     @Getter

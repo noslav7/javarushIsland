@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-//Класс енам - описывает возможные причины остановки симуляции
+//The enum describes possible reasons for simulation stops
 public enum SimulationEndReason {
 
     ALL_ANIMALS_DIED("There is no one living animal..."),

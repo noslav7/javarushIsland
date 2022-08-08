@@ -21,27 +21,21 @@ import java.util.concurrent.ThreadLocalRandom;
 @ToString
 public abstract class Animal extends EdibleItem implements ITicking, Cloneable {
     /**
-     * Абстрактный класс для любого животного.
-     * Наследует EdibleItem, поскольку может быть съеден (имеет свой вес).
-     * Наследует ITicking, т.к. обновляется каждый шаг симуляции.
-     * Наследует Cloneable чтобы можно было клонировать
+     * The abstract class for any animal.
+     * The class extends EdibleItem, because the former can be eaten  (has it's weight).
+     * Also, the class extends ITicking, because it does something every simulation act.
+     * And extends Cloneable, for making it possible to be cloned
      */
 
-
-    //Настройки животного.
     private final int speed;
     private final double howMuchCanEat;
 
-    //Map with fractional chances of eat other creatures
     private final Map<CreatureType, Double> probabilityEatCreatures;
 
-    //Насыщенность (голод) животного
     private double foodSaturation;
 
-    //Специально высчитанный параметр, на сколько голод уменьшается каждый ход симуляции
     private final double saturationReductionRate;
 
-    //Временное направление движения
     private Direction direction = null;
 
     public Animal(int maxQuantityInCell, int x, int y, String emoji, double weight, int speed,
@@ -56,10 +50,6 @@ public abstract class Animal extends EdibleItem implements ITicking, Cloneable {
         this.saturationReductionRate = howMuchCanEat / getWeight();
     }
 
-    /**
-     * @param edibleItem Что можно съесть
-     * @return Вернёт десятичный шанс съесть другую сущность (Десятичный шанс: 0 <= chance <= 1)
-     */
     public double getProbabilityEatAnother(EdibleItem edibleItem) {
         CreatureType creatureType = edibleItem.getCreatureType();
 
@@ -70,18 +60,13 @@ public abstract class Animal extends EdibleItem implements ITicking, Cloneable {
 
     @Override
     public void doSimulationTick() {
-        //Каждый тик симуляции вызывается данный метод
 
-        //Получаем локацию, на которой стоит животное, на данный момент
         Location currentLocation = Island.getCurrentSimulation().getLocationOnCoordinates(this.getX(), this.getY());
 
-        //Если попали в шанс - кушаем
         if(ThreadLocalRandom.current().nextBoolean()) eat(currentLocation);
 
-        //После отнимаем голод и проверяем, не упал ли он ниже нуля
         this.foodSaturation -= saturationReductionRate;
         if(foodSaturation <= 0) {
-            //Если голод <= 0  -> сущность умерла, удаляем с текущей локации
             this.setWeight(-1);
             currentLocation.removeItem(this);
             return;
@@ -196,13 +181,6 @@ public abstract class Animal extends EdibleItem implements ITicking, Cloneable {
         Island.getCurrentSimulation().addStatistic(ImitationStatistic.EventType.REPRODUCE);
     }
 
-
-    /**
-     * Creates a new animal (Class specified by enum). With reflection utils and config settings
-     * @param creatureType Type of creature
-     * @param configuration Configuration instance (To prevent permanent calls to .getConfiguration())
-     * @return New Animal with config settings
-     */
     public static Animal createNewAnimal(CreatureType creatureType, Configuration configuration,
                                          int xPosition, int yPosition) {
         try {

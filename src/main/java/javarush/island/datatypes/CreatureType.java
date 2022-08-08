@@ -7,9 +7,9 @@ import javarush.island.items.herbivores.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
-// CreatureType хранит в себе типы сущностей, всех, что могут быть созданы, растение, животные.
-// Хранит название для конфига и класс, для создания. В целом создан для удобства ориентации среди типов животных и
-// т.д., чтобы можно было их где-то сохранить
+// CreatureType stores types of all creatures, that can be created (both animals and plants).
+// The class stores names for config and classes for creation. In general the class is created for convenient
+// orientation among creatures' types etc., in order to provide a place for them to be saved
 @RequiredArgsConstructor
 public enum CreatureType {
 

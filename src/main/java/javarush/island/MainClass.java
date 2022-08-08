@@ -2,10 +2,10 @@ package javarush.island;
 
 
 import org.apache.commons.cli.*;
-
+//Using Apache CommonCLI library we initialize parser of console arguments
 public class MainClass {
         public static void main(String[] args) {
-        //С помощью библиотеки CommonCLI от Apache мы инициализируем парсер консольных аргументов
+
         Options options = new Options();
 
         Option settingsFileOption = new Option("sf", "settings_file", true, "settings file path");

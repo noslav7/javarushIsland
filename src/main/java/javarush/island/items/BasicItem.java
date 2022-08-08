@@ -5,6 +5,7 @@ import javarush.island.datatypes.CreatureType;
 import javarush.island.utils.MathUtils;
 import lombok.Getter;
 
+@Getter
 public abstract class BasicItem {
     /**
      * Basic item in cell

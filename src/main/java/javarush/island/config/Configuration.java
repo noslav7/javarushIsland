@@ -13,7 +13,7 @@ import java.util.Map;
 @Getter
 public class Configuration {
     /**
-     * Класс описывающий конфиг и созданный для взаимодействия с ним, хранит все настройки
+     * The class describes config. Created for other classes to be able to interact with itself, stores all settings
      */
 
     private static Configuration INSTANCE;
@@ -23,7 +23,7 @@ public class Configuration {
     private final Map<String, Object> islandSettings = new HashMap<>();
 
     @SuppressWarnings("unchecked")
-    private Configuration(String settingsFilePath) {
+    public Configuration(String settingsFilePath) {
         Yaml yaml = new Yaml();
 
         Map<String, Object> allSettings = null;
@@ -64,7 +64,6 @@ public class Configuration {
         return INSTANCE;
     }
 
-    //Обобщённый метод для получения настроек острова с возможностью скастить сразу
     public <T> T getIslandSetting(String settingName, Class<T> castTo) {
         Object setting = islandSettings.getOrDefault(settingName, null);
 
@@ -89,7 +88,6 @@ public class Configuration {
         return applyGeneric(setting, castTo);
     }
 
-    //Обобщённый метод для превращения Object в <T>
     private <T> T applyGeneric(Object setting, Class<T> castTo) {
         if(!castTo.isAssignableFrom(setting.getClass())) {
             throw new IllegalArgumentException("Trying to cast to the wrong type: "
@@ -102,7 +100,6 @@ public class Configuration {
         return castTo.cast(setting);
     }
 
-    //Метод для получения шансов на съедение других сущностей
     public Map<CreatureType, Double> getProbabilityEatCreatures(CreatureType creatureType) {
         Map<String, Object> rawConfigMap = getCreatureSetting(creatureType, "chanceToEat", Map.class);
 

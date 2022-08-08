@@ -8,8 +8,9 @@ import javarush.island.utils.Visualizer;
 import lombok.Getter;
 import org.apache.commons.cli.*;
 
-//Основной класс симуляции, где хранятся настройки, локации и вся необходимая информация
+//Basic class of the simulation, where the settings, locations and all necessary information can be stored
 public class Island {
+    @Getter
     private static Island currentSimulation;
 
     @Getter

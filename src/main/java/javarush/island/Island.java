@@ -6,7 +6,6 @@ import javarush.island.datatypes.SimulationEndReason;
 import javarush.island.statistic.ImitationStatistic;
 import javarush.island.utils.Visualizer;
 import lombok.Getter;
-import org.apache.commons.cli.*;
 
 //Basic class of the simulation, where the settings, locations and all necessary information can be stored
 public class Island {
@@ -18,7 +17,6 @@ public class Island {
 
     private final ImitationStatistic statistic;
 
-    //Основные настройки острова
     private final int width, height, statisticsUpdateFrequency;
 
     private int turnsCount;

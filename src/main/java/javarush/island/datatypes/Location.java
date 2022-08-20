@@ -9,10 +9,9 @@ import lombok.RequiredArgsConstructor;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.stream.Collectors;
 
 
-//Класс локации, тут хранится вся информация о локации, сущностях на ней, передвижениях между локациями
+//Location class. It stores all information about location, creatures in it, movement among locations
 @RequiredArgsConstructor
 public class Location {
 
@@ -43,8 +42,8 @@ public class Location {
     public void doSimulationTick() {
         inSimulationTick = true;
 
-        for(BasicItem basicItem : locationItems) {
-            if(ITicking.class.isAssignableFrom(basicItem.getClass())) {
+        for (BasicItem basicItem : locationItems) {
+            if (ITicking.class.isAssignableFrom(basicItem.getClass())) {
                 ((ITicking) basicItem).doSimulationTick();
             }
         }
@@ -59,12 +58,12 @@ public class Location {
     }
 
     private void growPlants() {
-        if(!ThreadLocalRandom.current().nextBoolean()) return;
+        if (!ThreadLocalRandom.current().nextBoolean()) return;
 
         int randomPlantWeight = ThreadLocalRandom.current().nextInt(0,
                 configuration.getCreatureSetting(CreatureType.PLANT, "maxNumberPerOneLocation", Number.class).intValue());
 
-        if(randomPlantWeight == 0) return;
+        if (randomPlantWeight == 0) return;
 
         locationItems.add(new Plant(
                 xCoordinate, yCoordinate, configuration.getCreatureSetting(CreatureType.PLANT, "emoji", String.class),
@@ -74,19 +73,19 @@ public class Location {
 
     private void fillAnimals() {
         for (CreatureType creatureType : CreatureType.values()) {
-            if(!Animal.class.isAssignableFrom(creatureType.getItemClass())) continue;
-            if(ThreadLocalRandom.current().nextDouble() > creatureSpawnChance) continue;
+            if (!Animal.class.isAssignableFrom(creatureType.getItemClass())) continue;
+            if (ThreadLocalRandom.current().nextDouble() > creatureSpawnChance) continue;
 
             int maxQuantityInCell = configuration.getCreatureSetting(creatureType, "maxNumberPerOneLocation", Number.class)
                     .intValue() / creaturesCountDivider;
 
-            if(maxQuantityInCell == 0) continue;
+            if (maxQuantityInCell == 0) continue;
             int animalsCount = ThreadLocalRandom.current().nextInt(0, maxQuantityInCell);
-            if(animalsCount == 0) continue;
+            if (animalsCount == 0) continue;
 
             Animal newAnimal = Animal.createNewAnimal(creatureType, configuration, xCoordinate, yCoordinate);
 
-            if(newAnimal == null) {
+            if (newAnimal == null) {
                 System.err.println("Unknown error while creating new Animal " + this);
 
                 continue;
@@ -97,19 +96,19 @@ public class Location {
     }
 
     public void removeItem(BasicItem basicItem) {
-        if(inSimulationTick) {
+        if (inSimulationTick) {
             listOfDeletedOrMoved.add(basicItem);
-        }else {
+        } else {
             locationItems.remove(basicItem);
         }
     }
 
     public boolean addNewBasicItem(BasicItem basicItem) {
-        if(getCountOfCreatures(basicItem.getCreatureType()) >= basicItem.getMaxQuantityInCell()) {
+        if (getCountOfCreatures(basicItem.getCreatureType()) >= basicItem.getMaxQuantityInCell()) {
             return false;
         }
 
-        if(inSimulationTick) {
+        if (inSimulationTick) {
             System.err.println("[LOG] An attempt to update location while location modifying");
             return false;
         }
@@ -135,7 +134,7 @@ public class Location {
         basicItems.removeAll(listOfDeletedOrMoved);
         basicItems.addAll(listOfCreatedChildren);
 
-        if(basicItem != null) basicItems.remove(basicItem);
+        if (basicItem != null) basicItems.remove(basicItem);
 
         return basicItems;
     }
@@ -145,17 +144,5 @@ public class Location {
                 .stream()
                 .filter(basicItem -> !basicItem.getCreatureType().equals(CreatureType.PLANT))
                 .count();
-    }
-
-    //-- Для отладки --
-    @Override
-    public String toString() {
-        return "Location{" +
-                "xCoordinate=" + xCoordinate +
-                ", yCoordinate=" + yCoordinate +
-                ", creatureSpawnChance=" + creatureSpawnChance +
-                ", creaturesCountDivider=" + creaturesCountDivider +
-                ", locationItems=" + locationItems.stream().map(BasicItem::getClass).collect(Collectors.toSet()) +
-                '}';
     }
 }

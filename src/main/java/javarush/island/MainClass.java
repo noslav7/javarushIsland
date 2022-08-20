@@ -1,8 +1,6 @@
 package javarush.island;
 
-
 import org.apache.commons.cli.*;
-//Using Apache CommonCLI library we initialize parser of console arguments
 public class MainClass {
         public static void main(String[] args) {
 

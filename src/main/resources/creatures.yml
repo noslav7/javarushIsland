@@ -1,7 +1,7 @@
 IslandSettings:
   height: 100
   width: 20
-  turnsCount: 20
+  turnsCount: 5
   statisticsUpdateFrequency: 500
 
   creatureSpawnChance: 0.10
